@@ -1,0 +1,30 @@
+WhenIntent when is the next {Organization}
+WhenIntent when is the next {Organization} {Format}
+WhenIntent when is the next {Modifier}
+WhenIntent when is the next {Modifier} {Format}
+WhenIntent when is the next {BallType} {Format}
+WhenIntent when is the next {City} {Format}
+WhenIntent when is the next {City} {Modifier} {Format}
+WhenIntent when is the next {City} {BallType} {Format}
+WhenIntent when is the next {City} {BallType} {Format}
+WhenIntent when is the {Organization}
+WhenIntent when is the {Organization} {Format}
+WhenIntent when is the {Modifier}
+WhenIntent when is the {Modifier} {Format}
+WhenIntent when is the {BallType} {Format}
+WhenIntent when is the {City} {Format}
+WhenIntent when is the {City} {Modifier} {Format}
+WhenIntent when is the {City} {BallType} {Format}
+WhenIntent when is the {City} {BallType} {Format}
+StandingsIntent who won the last {Organization}
+StandingsIntent who won the last {Organization} tournament
+StandingsIntent who won the {Organization}
+StandingsIntent who won the {Organization} tournament
+StandingsIntent who won {Organization}
+StandingsIntent who won {Organization} tournament
+StandingsIntent who won the last {City} {Organization}
+StandingsIntent who won the last {City} {Organization} tournament
+StandingsIntent who won the {City} {Organization}
+StandingsIntent who won the {City} {Organization} tournament
+StandingsIntent who won {City} {Organization}
+StandingsIntent who won {City} {Organization} tournament

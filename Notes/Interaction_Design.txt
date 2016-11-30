@@ -1,0 +1,43 @@
+When:
+    Alexa when is the next tournament
+        - foam
+        - no sting
+        - Rubber
+        - elite
+        - draft
+        -
+    Alexa when is the next league
+    Alexa when is the next dodge it tournament
+    Alexa when is the next classic
+
+Who won:
+    Alexa who won X tournament
+    Alexa who won X
+
+What are the standings for the foam league
+
+BallType:
+    foam
+    no sting
+    Rubber
+
+Organization:
+    Dodge it
+    Classic
+    Dodge North West
+    Dodge It
+
+Modifier
+    Elite
+    Draft
+
+Format:
+    league
+    tournament
+    pick up
+
+   BallType	foam | no sting | rubber	Edit
+   Format	league | tournament | pick up	Edit
+   Modifier	Elite | Draft	Edit
+   Organization	Dodge it | Classic | Dodge North West | Dodge It | Foam League | Block Party Showdown | Super Fun	Edit
+   City	Seattle | Portland

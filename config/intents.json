@@ -1,0 +1,38 @@
+{
+  "intents": [
+    {
+      "intent": "WhenIntent",
+      "slots": [
+        {
+          "name": "Organization",
+          "type": "Organization"
+        },
+        {
+          "name": "BallType",
+          "type": "BallType"
+        },
+        {
+          "name": "Format",
+          "type": "Format"
+        },
+        {
+          "name": "Modifier",
+          "type": "Modifier"
+        },
+        {
+          "name": "City",
+          "type": "City"
+        }
+      ]
+    },
+    {
+      "intent": "StandingsIntent",
+      "slots": [
+        {
+          "name": "Organization",
+          "type": "Organization"
+        }
+      ]
+    }
+  ]
+}
