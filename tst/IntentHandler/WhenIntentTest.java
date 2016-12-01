@@ -39,7 +39,7 @@ public class WhenIntentTest {
                 .build();
         String process = whenIntent.process(request, null);
         assertEquals("The next seattle tournament is Super Sunday Morning No-Sting Cartoon Tourney Spectacular" +
-                        " on December 11 2016",
+                        " on December 11 2016 from 10 a.m. to 3 p.m.",
                 process);
     }
 
