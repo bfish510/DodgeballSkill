@@ -2,8 +2,6 @@ package Events;
 
 import com.google.common.collect.Lists;
 import org.joda.time.DateTime;
-import org.joda.time.Instant;
-import org.joda.time.ReadableDuration;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,8 +48,11 @@ public class EventDatabase {
     }
 
     private boolean allSlotsEmpty(EventQuery event) {
-        // Clever != good but this is better than tying to the object state that may get out of sync.
-        return EventQuery.builder().build().equals(event);
+        return !event.getOrganization().isPresent()
+                && !event.getFormat().isPresent()
+                && !event.getCity().isPresent()
+                && !event.getModifiers().isPresent()
+                && !event.getBallType().isPresent();
     }
 
     //temp database until moved into dynamo
@@ -63,6 +64,15 @@ public class EventDatabase {
                 .readableDate("March 26 2016")
                 .organization("classic")
                 .winner("Not Safe For Work")
+                .format("tournament")
+                .modifiers(Lists.newArrayList())
+                .build());
+        events.add(Event.builder()
+                .ballType("rubber")
+                .city("Seattle")
+                .date(DateTime.parse("2017-03-26"))
+                .readableDate("March 26 2017")
+                .organization("classic")
                 .format("tournament")
                 .modifiers(Lists.newArrayList())
                 .build());
