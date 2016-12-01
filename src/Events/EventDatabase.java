@@ -68,11 +68,10 @@ public class EventDatabase {
                 .modifiers(Lists.newArrayList())
                 .build());
         events.add(Event.builder()
-                .ballType("rubber")
+                .ballType("no sting")
                 .city("Seattle")
-                .date(DateTime.parse("2017-03-26"))
-                .readableDate("March 26 2017")
-                .organization("classic")
+                .date(DateTime.parse("2016-12-11"))
+                .readableDate("December 11 2016")
                 .format("tournament")
                 .modifiers(Lists.newArrayList())
                 .build());

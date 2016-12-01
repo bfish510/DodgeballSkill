@@ -27,7 +27,7 @@ public class DodgeballSpeechlet implements Speechlet {
     public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
         logger.info("Received onLaunch request", session, request);
 
-        String speechOutput = "Welcome to the Dodgeball Skill. You can ask me about upcoming events and past winners";
+        String speechOutput = "Welcome to the dodge ball Skill. You can ask me about upcoming events and past winners";
         String repromptOutput = "You can ask me about upcoming events or past winners of tournaments.";
 
         return newAskResponse(speechOutput, false, repromptOutput, false);
