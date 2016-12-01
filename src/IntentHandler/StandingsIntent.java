@@ -3,11 +3,12 @@ package IntentHandler;
 import Events.Event;
 import Events.EventDatabase;
 import Events.EventQuery;
-import com.amazon.speech.slu.Slot;
 import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.Session;
 
 import java.util.Optional;
+
+import static Util.SlotUtil.getSlotContents;
 
 public class StandingsIntent implements IntentHandlerInterface {
 
@@ -47,10 +48,8 @@ class SessionSlots {
     private final Optional<String> city;
 
     public SessionSlots(IntentRequest request) {
-        Slot organizationSlot = request.getIntent().getSlot(ORGANIZATION);
-        this.organization = organizationSlot == null ? Optional.empty() : Optional.of(organizationSlot.getValue());
-        Slot citySlot = request.getIntent().getSlot(CITY);
-        this.city = organizationSlot == null ? Optional.empty() : Optional.of(citySlot.getValue());
+        this.organization = getSlotContents(request, ORGANIZATION);
+        this.city = getSlotContents(request, CITY);
     }
 
     public Optional<String> getOrganization() {

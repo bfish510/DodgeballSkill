@@ -14,6 +14,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static Util.SlotUtil.getSlotContents;
+
 public class WhenIntent implements IntentHandlerInterface {
 
     public String process(IntentRequest request, Session session) {
@@ -97,11 +99,6 @@ class WhenSlots {
         this.organization = getSlotContents(request, ORGANIZATION);
         this.modifier = getSlotContents(request, MODIFIER);
         this.format = getSlotContents(request, FORMAT);
-    }
-
-    private Optional<String> getSlotContents(IntentRequest request, String field) {
-        Slot slot = request.getIntent().getSlot(field);
-        return slot == null || slot.getValue() == null ? Optional.empty() : Optional.of(slot.getValue());
     }
 
     public String formatString() {

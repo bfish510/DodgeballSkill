@@ -12,10 +12,11 @@ import com.amazon.speech.speechlet.SpeechletException;
 import com.amazon.speech.speechlet.SpeechletResponse;
 
 import static Util.SpeechUtils.newAskResponse;
-import static Util.SpeechUtils.newTellResponse;
 
 public class DodgeballSpeechlet implements Speechlet {
 
+    private static final String speechOutput = "Welcome to the dodge ball Skill. You can ask me about upcoming events and past winners";
+    private static final String repromptOutput = "You can ask me about upcoming events or past winners of tournaments.";
     private static final LogHelper logger = new LogHelper();
 
     @Override
@@ -26,10 +27,6 @@ public class DodgeballSpeechlet implements Speechlet {
     @Override
     public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
         logger.info("Received onLaunch request", session, request);
-
-        String speechOutput = "Welcome to the dodge ball Skill. You can ask me about upcoming events and past winners";
-        String repromptOutput = "You can ask me about upcoming events or past winners of tournaments.";
-
         return newAskResponse(speechOutput, false, repromptOutput, false);
     }
 
@@ -44,7 +41,8 @@ public class DodgeballSpeechlet implements Speechlet {
 
         String speechOutput = processRequest(request, session);
 
-        return newTellResponse(String.format(speechOutput, request.getIntent().getName()), false);
+        return newAskResponse(String.format(speechOutput, request.getIntent().getName()), false,
+                repromptOutput, false);
     }
 
     private String processRequest(IntentRequest request, Session session) {
@@ -54,6 +52,11 @@ public class DodgeballSpeechlet implements Speechlet {
         } else if (intentName.equals(DodgeballIntent.WHEN.getIntentName())) {
             return new WhenIntent().process(request, session);
         }
+        logger.err("Intent failed to process with name %s and slots %s",
+                session,
+                request,
+                request.getIntent().getName(),
+                FriendlyStrings.fromSlotMap(request.getIntent().getSlots()));
         throw new IllegalArgumentException(String.format("The intent %s is not supported at this time", request.getIntent().getName()));
     }
 
