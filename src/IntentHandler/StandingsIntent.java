@@ -5,6 +5,7 @@ import Events.EventDatabase;
 import Events.EventQuery;
 import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.Session;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Optional;
 
@@ -13,9 +14,13 @@ import static Util.SlotUtil.getSlotContents;
 public class StandingsIntent implements IntentHandlerInterface {
 
     public String process(IntentRequest request, Session session) {
-        Optional<Event> event = lookup(new SessionSlots(request));
+        SessionSlots sessionSlots = new SessionSlots(request);
+        Optional<Event> event = lookup(sessionSlots);
         if (!event.isPresent()) {
-            return "Sorry, I couldn't find anything.";
+            if (StringUtils.isBlank(sessionSlots.getSpecifiedSlotString())) {
+                return "Sorry, I couldn't find anything.";
+            }
+            return "Sorry, I couldn't find anything for " + sessionSlots.getSpecifiedSlotString();
         }
         
         return formEventResponse(event.get());
@@ -58,5 +63,9 @@ class SessionSlots {
 
     public Optional<String> getCity() {
         return city;
+    }
+
+    public String getSpecifiedSlotString() {
+        return city.orElse("") + " " + organization.orElse("");
     }
 }
