@@ -74,6 +74,7 @@ public class EventDatabase {
                 .readableDate("December 11 2016")
                 .format("tournament")
                 .modifiers(Lists.newArrayList())
+                .readableEventTitle("Super Sunday Morning No-Sting Cartoon Tourney Spectacular")
                 .build());
         events.add(Event.builder()
                 .ballType("rubber")

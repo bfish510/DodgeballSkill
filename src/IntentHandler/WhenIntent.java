@@ -47,13 +47,18 @@ public class WhenIntent implements IntentHandlerInterface {
     }
 
     private String eventString(Event event) {
-        List<String> fields  = Lists.newArrayList(
-                event.getOrganization(),
-                event.getCity(),
-                event.getBallType(),
-                event.getModifiers().stream().collect(Collectors.joining(" ")),
-                event.getFormat());
-        String eventIdentifier = fields.stream().filter(Objects::nonNull).collect(Collectors.joining(" "));
+        String eventIdentifier;
+        if (event.getReadableEventTitle() != null) {
+            eventIdentifier = event.getReadableEventTitle();
+        } else {
+            List<String> fields = Lists.newArrayList(
+                    event.getOrganization(),
+                    event.getCity(),
+                    event.getBallType(),
+                    event.getModifiers().stream().collect(Collectors.joining(" ")),
+                    event.getFormat());
+            eventIdentifier = fields.stream().filter(Objects::nonNull).collect(Collectors.joining(" "));
+        }
 
         if (event.getReadableDate() == null) {
             return eventIdentifier;

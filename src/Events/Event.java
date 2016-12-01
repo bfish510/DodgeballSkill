@@ -18,8 +18,12 @@ public class Event {
 
     private String winner;
     private DateTime date;
-    private String readableDate;
     private String recurrence;
     private String where;
+
+    //Alexa readable
     private String timeFrameHumanReadable;
+    private String readableEventTitle;
+    private String readableDate;
+
 }

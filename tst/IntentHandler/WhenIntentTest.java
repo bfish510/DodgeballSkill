@@ -38,7 +38,9 @@ public class WhenIntentTest {
                 .withRequestId("testRequestId")
                 .build();
         String process = whenIntent.process(request, null);
-        assertEquals("The next seattle tournament is classic Seattle rubber  tournament on March 26 2017", process);
+        assertEquals("The next seattle tournament is Super Sunday Morning No-Sting Cartoon Tourney Spectacular" +
+                        " on December 11 2016",
+                process);
     }
 
     private Slot getSlot(String name, String value) {

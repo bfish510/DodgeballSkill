@@ -26,8 +26,8 @@ public class EventDatabaseTest {
         assertTrue("Event is not present", event.isPresent());
 
         Event presentEvent = event.get();
-        assertEquals("2016-11-30T00:00:00.000-08:00", presentEvent.getDate().toString());
-        assertEquals("foam", presentEvent.getBallType().toString());
+        assertEquals("2016-12-05T00:00:00.000-08:00", presentEvent.getDate().toString());
+        assertEquals("rubber", presentEvent.getBallType().toString());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class EventDatabaseTest {
         assertTrue("Event is not present", event.isPresent());
 
         Event presentEvent = event.get();
-        assertEquals("2016-11-14T00:00:00.000-08:00", presentEvent.getDate().toString());
+        assertEquals("2016-11-30T00:00:00.000-08:00", presentEvent.getDate().toString());
         assertEquals("foam", presentEvent.getBallType().toString());
     }
 
