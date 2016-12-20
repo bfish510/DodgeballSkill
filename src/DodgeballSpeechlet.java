@@ -1,4 +1,5 @@
 import IntentHandler.StandingsIntent;
+import IntentHandler.StopIntent;
 import IntentHandler.WhenIntent;
 import Util.FriendlyStrings;
 import Util.LogHelper;
@@ -51,6 +52,9 @@ public class DodgeballSpeechlet implements Speechlet {
             return new StandingsIntent().process(request, session);
         } else if (intentName.equals(DodgeballIntent.WHEN.getIntentName())) {
             return new WhenIntent().process(request, session);
+        } else if (intentName.equals(DodgeballIntent.STOP.getIntentName())
+                || intentName.equals(DodgeballIntent.CANCEL.getIntentName())) {
+            return new StopIntent().process(request, session);
         }
         logger.err("Intent failed to process with name %s and slots %s",
                 session,

@@ -1,6 +1,8 @@
 public enum DodgeballIntent {
     STANDINGS("StandingsIntent"),
-    WHEN("WhenIntent");
+    WHEN("WhenIntent"),
+    STOP("StopIntent"),
+    CANCEL("CancelIntent");
 
     private final String intentName;
 
