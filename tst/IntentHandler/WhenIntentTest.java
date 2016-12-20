@@ -33,13 +33,13 @@ public class WhenIntentTest {
                         .withName("WhenIntent")
                         .withSlots(ImmutableMap.of(
                                 "City", getSlot("City", "seattle"),
-                                "Format", getSlot("Format", "tournament")))
+                                "Format", getSlot("Format", "pick up")))
                         .build())
                 .withRequestId("testRequestId")
                 .build();
         String process = whenIntent.process(request, null);
-        assertEquals("The next seattle tournament is Super Sunday Morning No-Sting Cartoon Tourney Spectacular" +
-                        " on December 11 2016 from 10 a.m. to 3 p.m.",
+        assertEquals("The next seattle pick up is Seattle foam pick up on " +
+                        "December 21 2016 every wednesday from seven to nine p.m.",
                 process);
     }
 

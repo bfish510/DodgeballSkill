@@ -13,6 +13,7 @@ import com.amazon.speech.speechlet.SpeechletException;
 import com.amazon.speech.speechlet.SpeechletResponse;
 
 import static Util.SpeechUtils.newAskResponse;
+import static Util.SpeechUtils.newTellResponse;
 
 public class DodgeballSpeechlet implements Speechlet {
 
@@ -28,7 +29,7 @@ public class DodgeballSpeechlet implements Speechlet {
     @Override
     public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
         logger.info("Received onLaunch request", session, request);
-        return newAskResponse(speechOutput, false, repromptOutput, false);
+        return newTellResponse(speechOutput, false);
     }
 
     @Override
@@ -42,8 +43,7 @@ public class DodgeballSpeechlet implements Speechlet {
 
         String speechOutput = processRequest(request, session);
 
-        return newAskResponse(String.format(speechOutput, request.getIntent().getName()), false,
-                repromptOutput, false);
+        return newTellResponse(String.format(speechOutput, request.getIntent().getName()), false);
     }
 
     private String processRequest(IntentRequest request, Session session) {

@@ -8,6 +8,7 @@ import com.amazon.speech.speechlet.IntentRequest;
 import com.amazon.speech.speechlet.Session;
 import com.google.common.collect.Lists;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +60,7 @@ public class WhenIntent implements IntentHandlerInterface {
                     event.getBallType(),
                     event.getModifiers().stream().collect(Collectors.joining(" ")),
                     event.getFormat());
-            eventIdentifier = fields.stream().filter(Objects::nonNull).collect(Collectors.joining(" "));
+            eventIdentifier = fields.stream().filter(StringUtils::isNotBlank).collect(Collectors.joining(" "));
         }
 
         if (event.getReadableDate() == null) {
@@ -68,7 +69,7 @@ public class WhenIntent implements IntentHandlerInterface {
         String whenEventString = String.format("%s on %s", eventIdentifier, event.getReadableDate());
 
         if(event.getRecurrence() != null) {
-            whenEventString += event.getRecurrence();
+            whenEventString += " " + event.getRecurrence();
         }
 
         if(event.getTimeFrameHumanReadable() != null) {

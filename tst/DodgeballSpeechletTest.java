@@ -53,9 +53,9 @@ public class DodgeballSpeechletTest {
         Session session = getSession();
         SpeechletResponse whenIntent = speechlet.onIntent(whenRequest, session);
 
-        assertEquals("[INFO] Mon Dec 03 02:15:30 PST 2007 sessionId: testSessionId requestId: testRequestId Received onIntent request\n" +
-                "[INFO] Mon Dec 03 02:15:30 PST 2007 sessionId: testSessionId requestId: testRequestId Received Intent with name WhenIntent and slots SlotMap: {}\n",
-                outContent.toString());
+        assertEquals("[INFO] Mon Dec 03 05:15:30 EST 2007 sessionId: testSessionId requestId: testRequestId Received onIntent request\n" +
+                "[INFO] Mon Dec 03 05:15:30 EST 2007 sessionId: testSessionId requestId: testRequestId Received Intent with name WhenIntent and slots SlotMap: {}\n",
+        outContent.toString());
     }
 
     private Session getSession() {
